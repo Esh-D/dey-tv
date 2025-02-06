@@ -1,0 +1,22 @@
+.card-container {
+    /*border, border radius */
+    border-style: solid;
+    border-color: grey;
+    border-radius: 20px;
+    width: 200px;
+    height: 150px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.channel-image {
+    width: 100px;
+    height: 100px;
+}
+
+.channel-name {
+
+}
