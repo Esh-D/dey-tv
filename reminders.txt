@@ -4,4 +4,4 @@
     "build": "vite build", //"tsc -b && vite build" instead of just "vite build"
 }
 
-2. 
+2. "deploy" : "gh-pages -d dist", may not be needed in package.json (also "predeploy" may not be needed either -- I'm less sure about that one) 
