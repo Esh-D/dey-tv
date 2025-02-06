@@ -1,5 +1,4 @@
 1. add "tsc -b &&" back to package.json :
-
 "scripts": {
     "build": "vite build", //"tsc -b && vite build" instead of just "vite build"
 }
