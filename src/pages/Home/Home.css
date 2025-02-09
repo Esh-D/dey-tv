@@ -3,6 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 50px;
@@ -21,4 +22,33 @@
     letter-spacing: 8px;
     top: 0;
     margin-bottom: 30px;
+}
+
+.add-channel {
+    border-style: solid;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 20px;
+    font-size: 35px;
+    color: grey;
+}
+
+.add-channel:hover {
+    cursor:pointer;
+}
+
+.modal-btn {
+    border-style: solid;
+    border-radius: 20px;
+    height: 40px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modal-btn:hover {
+    cursor:pointer;
 }

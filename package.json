@@ -5,16 +5,18 @@
   "homepage": "https://Esh-D.github.io/",
   "type": "module",
   "scripts": {
-    "predeploy" : "pnpm run build",
-    "deploy" : "gh-pages -d dist",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build", 
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^11.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-modal": "^3.16.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
