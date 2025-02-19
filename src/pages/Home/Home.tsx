@@ -5,7 +5,7 @@ import Card from "../../components/Card/Card"
 import { collection, getDocs, addDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { db } from "../../firebase/init"
-import Modal from 'react-modal';
+//import Modal from 'react-modal';
 
 /*
 Color Palette
@@ -20,7 +20,6 @@ whitesmoke
 
 function Home() {
     const [channels, setChannels] = useState([]);
-    const [modalIsOpen, setIsOpen] = useState(false);
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
     const [channelAdded, setChannelAdded] = useState(false);
@@ -35,11 +34,7 @@ function Home() {
         setChannels(c);
     }
 
-    function openModal() {
-        setIsOpen(true);
-    }
-    function closeModal() {
-        setIsOpen(false);
+    function onClose() {
         setChannelAdded(false);
     }
 
@@ -50,7 +45,7 @@ function Home() {
                 logo: "https://www.shutterstock.com/image-vector/image-icon-trendy-flat-style-600nw-643080895.jpg", //default logo
                 link: link
             });
-            console.log("Document written with ID: ", docRef.id);
+            //console.log("Document written with ID: ", docRef.id);
             setChannelAdded(true);
         } catch (e) {
             console.error("Error adding document: ", e);
@@ -68,7 +63,23 @@ function Home() {
             <div className="banner">Dey TV</div>
             <div className="home-container">
                 {channels ? channels.map((channel) => <Card key={channel.id} channelName={channel.name} picURL={channel.logo} link={channel.link}/>) : <p>Loading</p>}
-                <Modal
+                
+                <dialog id="add_channel_modal" className="modal">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Add Channel</h3>
+                        <div className="flex flex-col items-center gap-2">
+                            <input type="text" placeholder="Type name" className="input input-bordered w-full max-w-xs" value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" placeholder="Type link" className="input input-bordered w-full max-w-xs" value={link} onChange={(e) => setLink(e.target.value)}/>
+                            <div className="modal-btn hover:bg-green-100 w-35" onClick={addChannel}>Add Channel</div> {/*I thin change to div to make onClick work*/}
+                        </div>
+                        <div className="modal-action">
+                            <form method="dialog">
+                                <button className="modal-btn w-20" onClick={onClose}>Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+                {/*<Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
                     contentLabel="Example Modal"
@@ -84,9 +95,11 @@ function Home() {
                         <br/>
                         <div className="modal-btn" onClick={closeModal}>Click here to GO BACK to channels</div>
                     </form>
-                </Modal>
+                </Modal>*/}
+
             </div>
-            <div onClick={openModal} className="add-channel">+</div>
+            <div onClick={()=>document.getElementById('add_channel_modal').showModal()} className="add-channel">+</div>
+            {/*<div onClick={openModal} className="add-channel">+</div>*/}
         </div>
     )
 }
