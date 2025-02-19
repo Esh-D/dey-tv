@@ -1,3 +1,6 @@
+.background {
+    background-color: #FFFFFF;
+}
 .home-container {
     display: flex;
     flex-direction: row;
@@ -12,7 +15,7 @@
 .banner {
     width: 100%;
     height: 300px;
-    background-color: green;
+    background-color: #0A3200;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,11 +34,14 @@
     width: 60px;
     margin: 20px;
     font-size: 35px;
-    color: grey;
+    color: white;
+    background-color: darkseagreen;
+    float: right;
 }
 
 .add-channel:hover {
     cursor:pointer;
+    background-color: darkgreen;
 }
 
 .modal-btn {

@@ -7,6 +7,17 @@ import { useEffect, useState } from "react"
 import { db } from "../../firebase/init"
 import Modal from 'react-modal';
 
+/*
+Color Palette
+
+#E5E5E5 - platinum
+#FFFFFF - white
+#0A3200
+darkseagreen
+darkgreen
+whitesmoke
+*/
+
 function Home() {
     const [channels, setChannels] = useState([]);
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -53,11 +64,10 @@ function Home() {
     }, [channelAdded]);
 
     return (
-        <>
+        <div className="background">
             <div className="banner">Dey TV</div>
             <div className="home-container">
                 {channels ? channels.map((channel) => <Card key={channel.id} channelName={channel.name} picURL={channel.logo} link={channel.link}/>) : <p>Loading</p>}
-                <div onClick={openModal} className="add-channel">+</div>
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -76,7 +86,8 @@ function Home() {
                     </form>
                 </Modal>
             </div>
-        </>
+            <div onClick={openModal} className="add-channel">+</div>
+        </div>
     )
 }
 
